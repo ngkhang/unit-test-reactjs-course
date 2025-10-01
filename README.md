@@ -1,18 +1,17 @@
-# Unit Test with ReactJS- TypeScript
+# Unit Test with ReactJS - TypeScript
 
-- [Unit Test with ReactJS- TypeScript](#unit-test-with-reactjs--typescript)
+- [Unit Test with ReactJS - TypeScript](#unit-test-with-reactjs---typescript)
   - [Requirements](#requirements)
   - [Notes](#notes)
     - [Jest](#jest)
-      - [Core Concepts](#core-concepts)
-        - [Globals](#globals)
-        - [Expect](#expect)
-      - [Coverage Metrics](#coverage-metrics)
+      - [Globals](#globals)
+      - [Expect](#expect)
       - [Mock Function](#mock-function)
     - [Testing Library](#testing-library)
       - [Queries](#queries)
       - [User Interactions](#user-interactions)
       - [React Testing Library](#react-testing-library)
+    - [Coverage Metrics](#coverage-metrics)
     - [AAA Pattern (Arrange-Act-Assert)](#aaa-pattern-arrange-act-assert)
   - [Author](#author)
 
@@ -30,13 +29,11 @@ This a repository about learning to write unit tests in React.js with TypeScript
 
 ### Jest
 
-#### Core Concepts
-
-- Jest provides global functions (`describe`, `it`, `expect`, etc.) - no imports needed.
-
-##### Globals
+#### Globals
 
 [Jest: Globals](https://jestjs.io/docs/api)
+
+- Jest provides global functions (`describe`, `it`, `expect`, etc.) - no imports needed.
 
 - **`describe(name, fn)`**
   - Groups related tests into a block
@@ -53,29 +50,22 @@ This a repository about learning to write unit tests in React.js with TypeScript
   - `name`: supports printf formatting for parameter injection
   - `fn`: receives each row as arguments
 
-##### Expect
+#### Expect
 
 [Jest: Expect](https://jestjs.io/docs/expect)
 
 - Used to test values with "matcher" functions
 - Provides assertions like `toBe()`, `toEqual()`, `toContain()`, etc.
 
-#### Coverage Metrics
-
-| Metric     |            | Meaning                                                     |
-| ---------- | ---------- | ----------------------------------------------------------- |
-| `% Stmts`  | Statements | Percentage of executable statements covered                 |
-| `% Branch` | Branches   | Percentage of code branches executed (if-else, switch-case) |
-| `% Funcs`  | Functions  | Percentage of functions called at least once                |
-| `% Lines`  | Lines      | Percentage of source code lines executed                    |
-
 #### Mock Function
 
 [Jest: Mock Function](https://jestjs.io/docs/mock-function-api)
 
-- Also called "spies" - track function calls and behavior
-- `jest.fn()` - Creates mock function (returns `undefined` by default)
-- Use `.toHaveBeenCalled()`, `.toHaveBeenCalledTimes()`, `.toHaveBeenCalledWith()` to assert
+- Mock functions (also called "spies") track function calls and control behavior:
+  - Creating Mocks
+    - `jest.fn()`: creates mock function (returns `undefined` by default)
+  - Assertions
+    - `.toHaveBeenCalled()`, `.toHaveBeenCalledTimes()`, `.toHaveBeenCalledWith()`
 
 ### Testing Library
 
@@ -109,15 +99,25 @@ This a repository about learning to write unit tests in React.js with TypeScript
 
 [Testing Library: User Event](https://testing-library.com/docs/user-event/intro)
 
-- **`userEvent`**: Simulates real browser user interactions
-  - `userEvent.setup()` - Initialize user instance
-- `user.click()`, `user.type()`, `user.hover()` - Simulate real browser interactions
+- **`userEvent`**: simulates real browser user interactions
+  - `userEvent.setup()`: initialize user instance
+  - Common Interactions:
+    - `user.click()`, `user.type()`, `user.hover()`
 
 #### React Testing Library
 
 [Testing Library: React Testing](https://testing-library.com/docs/react-testing-library/intro)
 
-- **`render(component)`**: Mounts component into virtual DOM for testing
+- **`render(component)`**: mounts component into virtual DOM for testing
+
+### Coverage Metrics
+
+| Metric     |            | Meaning                                                     |
+| ---------- | ---------- | ----------------------------------------------------------- |
+| `% Stmts`  | Statements | Percentage of executable statements covered                 |
+| `% Branch` | Branches   | Percentage of code branches executed (if-else, switch-case) |
+| `% Funcs`  | Functions  | Percentage of functions called at least once                |
+| `% Lines`  | Lines      | Percentage of source code lines executed                    |
 
 ### AAA Pattern (Arrange-Act-Assert)
 
