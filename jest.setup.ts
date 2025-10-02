@@ -4,7 +4,7 @@ import "@testing-library/jest-dom";
 
 // File này về sau có thể cấu hình thêm global mock (như mock fetch hoặc mock localStorage...vv) tùy dự án
 
-// Chạy 1 lần trước toàn bộ các test
+// Runs a function before any of the tests in this file run
 beforeAll(() => {
 	// Ví dụ mock fetch toàn cục
 	globalThis.fetch = jest.fn();
@@ -14,14 +14,17 @@ beforeAll(() => {
 	console.log = jest.fn(); // tùy dự án nếu không cần có thể comment lại
 });
 
-// Chạy sau mỗi test case
+// Runs a function after each one of the tests in this file completes
 afterEach(() => {
-	// reset mỗi test để không bị ảnh hưởng giữa các test
+	// Reset mocks automatically before each test.
 	(fetch as jest.Mock).mockReset();
-	// Xóa lịch sử call mock
+
+	// Clears the mock.calls, mock.instances, mock.contexts and mock.results properties of all mocks
 	jest.clearAllMocks();
-	// Reset cache của module require/import (require)
+
+	// Resets the module registry - the cache of all required modules
 	jest.resetModules();
-	// Restore tất cả spyOn về implementation gốc
+
+	// Restores all mocks and replaced properties back to their original value.
 	jest.restoreAllMocks();
 });
