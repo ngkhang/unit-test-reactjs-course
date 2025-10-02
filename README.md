@@ -155,7 +155,8 @@ This a repository about learning to write unit tests in React.js with TypeScript
 - **`userEvent`**: simulates real browser user interactions
   - `userEvent.setup()`: initialize user instance
   - Common Interactions:
-    - `user.click()`, `user.type()`, `user.hover()`
+    - `user.click()`: user click
+    - `user.type()`: user typing
 
 #### React Testing Library
 
