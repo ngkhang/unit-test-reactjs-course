@@ -85,10 +85,13 @@ This a repository about learning to write unit tests in React.js with TypeScript
     - Useful to resolve different values over multiple async calls
   - `mockFn.mockRejectedValueOnce(value)`
     - Useful together with `.mockResolvedValueOnce()` or to reject with different exceptions over multiple async calls
+  - `mockFn.mockImplementation()`
 
 - Reset
   - `mockFn.mockReset()`
     - Clears history and replaces implementation with empty function
+  - `mockFn.mockRestore()`
+    - Does everything that `mockFn.mockReset()` does, and also restores the original (non-mocked) implementation.
 
 - Assertions
   - `.toHaveBeenCalled()`, `.toHaveBeenCalledTimes()`, `.toHaveBeenCalledWith()`
@@ -112,6 +115,18 @@ This a repository about learning to write unit tests in React.js with TypeScript
   - `jest.restoreAllMocks()`
     - Restore all mocks to original values
     - Equivalent to calling `.mockRestore()` on every mocked function and `.restore()` on every replaced property
+
+- Fake Timers:
+  - `jest.useFakeTimers()`
+    - Fake timers for all tests within the file, until original timers are restored with `jest.useRealTimers()`
+    - This is a global operation and will affect other tests within the same file
+  - `jest.useRealTimers()`
+    - Restore the original implementations of the global date, performance, time and timer APIs
+  - `jest.runOnlyPendingTimers()`
+    - Executes only the macro-tasks that are currently pending (i.e., only the tasks that have been queued by `setTimeout()` or `setInterval()` up to this point)
+    - If any of the currently pending macro-tasks schedule new macro-tasks, those new tasks will not be executed by this call.
+  - `jest.advanceTimersByTime(msToRun)`
+    - Executes only the macro task queue (i.e. all tasks queued by `setTimeout()` or `setInterval()` and `setImmediate()`).
 
 ### Testing Library
 

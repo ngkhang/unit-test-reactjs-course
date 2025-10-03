@@ -28,3 +28,8 @@ afterEach(() => {
 	// Restores all mocks and replaced properties back to their original value.
 	jest.restoreAllMocks();
 });
+
+export const mockResponse = (data: any): Response =>
+	({
+		json: async () => data,
+	} as Response);

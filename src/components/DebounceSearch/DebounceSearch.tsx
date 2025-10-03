@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import debounce from "lodash/debounce";
 
-// Data Type này chúng ta follow theo jsonplaceholder.typicode.com (gọi api ở dưới)
 export interface User {
 	id: number;
 	name: string;
