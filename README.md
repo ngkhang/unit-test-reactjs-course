@@ -178,6 +178,12 @@ This a repository about learning to write unit tests in React.js with TypeScript
 [Testing Library: React Testing](https://testing-library.com/docs/react-testing-library/intro)
 
 - **`render(component)`**: mounts component into virtual DOM for testing
+- **`act(callback)`**:
+  - This is a light wrapper around the react act function
+  - All it does is forward all arguments to the act function if your version of react supports act
+- **`renderHook(callback, option?)`**
+  - This is a convenience wrapper around `render` with a custom test component
+  - The API emerged from a popular testing pattern and is mostly interesting for libraries publishing hooks.
 
 ### Coverage Metrics
 
